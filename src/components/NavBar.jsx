@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import LineThree from "./LineThree";
-import SignUp from "./SignUp";
+import SignUp from "../auth/SignUp";
+import Login from "../auth/Login";
+import { useNavigate } from "react-router";
 
 
 const NavBar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [signUpMenu, setSignUpMneu] = useState(false);
+  const [showLoginMenu, setShowLoginMenu] = useState(false)
+  const navigate = useNavigate();
+
+  const handleOnclick = ()=> {
+    navigate("/signup")
+  }
+
+  const navigateToLogin = ()=> {
+    navigate("/login")
+  }
+
 
   useEffect(()=>{
     if(showMobileMenu){
@@ -21,7 +33,7 @@ const NavBar = () => {
     <div className="absolute top-0 left-0 w-full z-10">
       <div className="flex flex-row justify-center items-center w-full bg-black text-white py-3 gap-1 font-light">
       <h1>Sign up and get 20% off to your first order.</h1>
-      <button className="underline underline-offset-4 decoration-1 hover:text-red-600">Sign Up Now</button>
+      <button onClick={handleOnclick} className="underline underline-offset-4 decoration-1 hover:text-blue-600">Sign Up Now</button>
       </div>
       <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-1 mb-3 lg:px-9 bg-transparent">
         <div className="flex gap-4 justify-center items-center">
@@ -43,13 +55,12 @@ const NavBar = () => {
             <img src="/images/shopping_basket.svg" alt="" className="w-6" />
             <img src="/images/user_circle.svg" alt="" className="w-6"/>
         </div>
-        <button onClick={()=>{setSignUpMneu(true)}} className="hidden md:block bg-black px-8 py-2 rounded-full text-white">Sign up</button>
+        <button onClick={navigateToLogin} className="hidden md:block bg-black px-8 py-2 rounded-full text-white">Sign up</button>
       </div>
       <LineThree/>
 
-
       {/* --------mobile-menu----- */}
-      <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform  transition-all duration-200 ease-in-out`}>
+      <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out`}>
         <div className="flex justify-end p-6 cursor-pointer">
           <button onClick={()=>{setShowMobileMenu(false)}}>
           <FaTimes className="w-10 text-3xl"/>
@@ -64,13 +75,6 @@ const NavBar = () => {
         <div className="flex flex-row items-center border:none bg-white rounded-full px-6 py-3 gap-2 mx-5">
         <FaSearch className="left-3 text-lg text-gray-400"/>
         <input type="text" placeholder="Search for products..." id="" className="bg-transparent text-xl w-full border-none focus:outline-none mb-1 text-black" />
-        </div>
-      </div>
-
-      {/* ----signUp--- */}
-      <div className={`${signUpMenu ? 'bg-white fixed w-full': 'hidden'} right-0 top-0 button-overflow-hidden bg-black transform  transition-all duration-200 ease-in-out`}>
-        <div>
-          <SignUp/>
         </div>
       </div>
     </div>

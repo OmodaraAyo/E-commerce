@@ -1,5 +1,7 @@
+import Header from "../components/Header";
+import Login from "../auth/Login";
 import NavBar from "../components/NavBar";
-import SignUp from "../components/SignUp";
+import SignUp from "../auth/SignUp";
 import Layout from "../layout/Layout";
 
 const ROUTES = [
@@ -12,8 +14,16 @@ const ROUTES = [
         element: <Layout/>
     },
     {
-        path:'signup',
+        path:'/signup',
         element: <SignUp/>
-    }
+    },
+    {
+        path: '/login',
+        element: <Login/>
+    },
+    {
+        path:"/home",
+        element: <Header/>
+    },
 ]
 export default ROUTES;
