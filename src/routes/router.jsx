@@ -23,7 +23,7 @@ const ROUTES = [
     },
     {
         path:"/home",
-        element: <Header/>
+        element: <Layout/>
     },
 ]
 export default ROUTES;

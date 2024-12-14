@@ -45,7 +45,7 @@ const LineThree = () => {
     <div>
       <div className='relative flex flex-col md:flex-row justify-center items-start py-0 w-full bg-[#F2F0F1] gap-1 px-7 md:pl-9 xl:px-40 overflow-hidden'>
         <div className='flex flex-col justify-center items-start'>
-          <h1 className='text-6xl sm:text-7xl md:text-[75px] max-w-auto font-extrabold mt-20'>
+          <h1 className='text-6xl sm:text-7xl md:text-[75px] max-w-full font-semibold mt-20'>
             FIND CLOTHES THAT MATCHES YOUR STYLE
           </h1>
           <p className='my-3 sm:max-w-sm md:max-w-screen-sm lg:max-w-lg grid grid-cols-1'>
@@ -84,7 +84,7 @@ const LineThree = () => {
           </div>
         </div>
       </div>
-      <div className='flex justify-center  py-10 bg-black '>
+      <div className='flex justify-center py-8 bg-black'>
         <div className="grid grid-cols-3 gap-9 md:grid-cols-5 justify-items-center">
         <div>
               <img src="/images/Versace.svg" alt="versace" />

@@ -30,7 +30,7 @@ const NavBar = () => {
   }, [showMobileMenu])
 
   return (
-    <div className="absolute top-0 left-0 w-full z-10">
+    <div className="top-0 left-0 w-full">
       <div className="flex flex-row justify-center items-center w-full bg-black text-white py-3 gap-1 font-light">
       <h1>Sign up and get 20% off to your first order.</h1>
       <button onClick={handleOnclick} className="underline underline-offset-4 decoration-1 hover:text-blue-600">Sign Up Now</button>
