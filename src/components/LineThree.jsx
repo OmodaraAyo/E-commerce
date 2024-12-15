@@ -73,19 +73,19 @@ const LineThree = () => {
         <img src="/images/sun_star.svg" alt="" className=''/>
         </div>
         <div className='flex sm:mt-12 md:w-screen '>
-          <div className='w-full  h-full relative '>
+          <div className='w-full h-full relative '>
             {showFlexImage && <img src="/images/people3.svg" alt="" className='w-full h-2/3 lg:w-full lg:h-2/3 md:h-2/3'/>}
             {showImage && <div className="h-full mt-[-40px]">
-              <img src="/images/model_image_full.jpg" alt="" className='w-screen h-screen absolute'/>
+              <img src="/images/model_image_full.jpg" alt="" className='w-auto absolute  left-0 right-0 md:h-[900px]'/>
               </div>}
           </div>
-          <div className='absolute right-0 pr-5 md:pr-3 lg:pr-20 xl:pr-48'>
-            <img src="/images/big_star.svg" alt="" className=''/>
+          <div className='absolute right-0 pr-5 md:pr-8 md:pt-8 lg:pr-20 xl:pr-48 '>
+            <img src="/images/big_star.svg" alt="" className='md:w-20'/>
           </div>
         </div>
       </div>
-      <div className='flex justify-center py-8 bg-black'>
-        <div className="grid grid-cols-3 gap-9 md:grid-cols-5 justify-items-center">
+      <div className='flex justify-center py-3 sm:py-8 bg-black'>
+        <div className="grid grid-cols-3 gap-8 sm:gap-9 md:grid-cols-5 justify-items-center py-3">
         <div>
               <img src="/images/Versace.svg" alt="versace" />
             </div>

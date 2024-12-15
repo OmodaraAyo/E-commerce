@@ -14,7 +14,7 @@ const NewArrivals = (props) => {
     if(isError){
       return <div>Error loading products</div>
     }
-    const handleHorizontalScroll = (e)=>{
+  const handleHorizontalScroll = (e)=>{
   e.preventDefault();
   e.stopPropagation();
   e.currentTarget.scrollLeft += e.deltaY;

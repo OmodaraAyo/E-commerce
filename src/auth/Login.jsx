@@ -17,22 +17,22 @@ const Login = () => {
       backgroundPosition: "center",
       backgroundAttachment: "fixed", 
       backgroundRepeat: "no-repeat",
-      height: "100vh", 
+      minHeight: "100vh", 
     }}
     >
-        <div className={`bg-black bg-opacity-50 fixed w-full h-full right-0 top`}>
+        <div className={`bg-black bg-opacity-50 fixed w-full h-full right-0 top-0`}>
         <div className="w-full h-full bg-transparent flex justify-between p-5 cursor-pointer z-30">
-          <h1 className="text-5xl font-extrabold text-[#F2F0F1]">SHOP.CO</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-[#F2F0F1]">SHOP.CO</h1>
           <div className="">
           <button onClick={navigateToHome}>
-          <FaTimes className="text-5xl text-[#F2F0F1] hover:text-[#e7e1e4] sm:mr-4 right-4 "/>
+          <FaTimes className="text-3xl md:text-5xl  text-[#F2F0F1] hover:text-[#e7e1e4] sm:mr-4 right-4 "/>
           </button>
         </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <img src="/images/" alt="" className="fixed w-16 py-32 cursor-pointer"/>
-        </div>
+        </div> */}
         <div className="flex flex-col items-center text-center p-6 lg:px-32">
         <div className="flex justify-center w-full py-52">
         <form className="max-w-2xl mx-auto md:w-11/12 fixed ">
@@ -62,7 +62,7 @@ const Login = () => {
           </form>
         </div>
         <div className="fixed top-[370px] h-0 bg-black">
-        <div className="flex gap-14 justify-between w-full px-10 md:px-24 xl:px-80 relative mt-32 text-[#F2F0F1] text-2xl ">
+        <div className="flex gap-14 justify-between w-full px-10 md:px-24 xl:px-80 relative mt-32 text-[#F2F0F1] text-xl md:text-2xl">
             <span>Don't have an account?</span>
             <span className="hover:text-[#e7e1e4] underline underline-offset-3 decoration-1 font-medium text-[#F2F0F1]">
               <Link to={"/signup"}>Sign up</Link>
@@ -70,8 +70,8 @@ const Login = () => {
           </div>
           </div>
         </div>
-        <div className=" top-[550px] w-full flex justify-end border-t border-[#e7e1e4] px-6 md:px-10 xl:px-12 fixed mt-32 text-white font-semibold h-0">
-            <h2>&copy; 2024 All Rights Reserved</h2>
+        <div className="top-[560px] w-full flex justify-end border-t border-[#e7e1e4] px-6 md:px-10 xl:px-12 fixed mt-32 text-white text-xl font-semibold h-0">
+            <h2 className="mt-1">&copy; 2024 All Rights Reserved</h2>
           </div>
     </div>
   );
