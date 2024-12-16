@@ -2,20 +2,22 @@ import React from 'react'
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Card = (props) => {
-    const {data, isLoading, isError} = props;
+    const {data, imageField, isLoading, isError} = props;
     console.log("from card: ",data)
     
   return (
-    <div className='overflow-hidden grid grid-cols-1'>
+    <div className='overflow-hidden grid grid-cols-1 cursor-pointer'>
+      <div className='overflow-x-auto scroll-smooth' style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
         <div className='flex gap-8 transition-transform duration-500 ease-in-out'>
          {data.map((product)=>(
           <div key={product.id} className='relative flex-shrink-0 sm:w-[295px] h-full bg-[#F2F0F1] rounded-2xl'>
-            <div className=''>
-            <img src={product.thumbnail} alt={product.title} className='w-[198.67px] md:w-[296px] h-auto md:h-[298px] justify-self-center'/>
+            <div>
+            <img src={product[imageField]} alt={product.title} className='w-[198.67px] md:w-[296px] h-auto md:h-[298px] justify-self-center'/>
             </div>
           </div>
          ))}
         </div>
+        
         <div className='flex gap-8 transition-transform duration-500 ease-in-out items-center'>
         {data.map((product)=>(
           <div key={product.id} className='relative flex-shrink-0 w-[200px] sm:w-[295px] bg-none'>
@@ -26,7 +28,7 @@ const Card = (props) => {
                 if(index < Math.floor(product.rating)){
                   return <FaStar key={index} className='text-yellow-300'/>
                 }else if(index < product.rating){
-                  return <div className='flex items-center gap-3'><FaStarHalfAlt key={index} className='text-yellow-300'/> <div className='font-light'>{product.rating}/<span className='font-light text-gray-500'>5</span></div></div>
+                  return <div key={index} className='flex items-center gap-3'><FaStarHalfAlt className='text-yellow-300'/> <div className='font-light'>{product.rating}/<span className='font-light text-gray-500'>5</span></div></div>
                 }
               })}
               </div>
@@ -34,6 +36,7 @@ const Card = (props) => {
             </div>
           </div>
          ))}
+        </div>
         </div>
     </div>
   )

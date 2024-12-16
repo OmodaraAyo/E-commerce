@@ -3,6 +3,7 @@ import Login from "../auth/Login";
 import NavBar from "../components/NavBar";
 import SignUp from "../auth/SignUp";
 import Layout from "../layout/Layout";
+import ViewAll from "../pages/ViewAll";
 
 const ROUTES = [
     {
@@ -25,5 +26,9 @@ const ROUTES = [
         path:"/home",
         element: <Layout/>
     },
+    {
+        path:"/home/all-product",
+        element: <ViewAll/>
+    }
 ]
 export default ROUTES;
