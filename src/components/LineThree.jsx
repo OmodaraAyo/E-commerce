@@ -84,7 +84,7 @@ const LineThree = () => {
           </div>
         </div>
       </div>
-      <div className='flex justify-center py-3 sm:py-8 bg-black'>
+      <div className='flex justify-center py-3 sm:py-8 bg-black '>
         <div className="grid grid-cols-3 gap-8 sm:gap-9 md:grid-cols-5 justify-items-center py-3">
         <div>
               <img src="/images/Versace.svg" alt="versace" />
@@ -95,10 +95,10 @@ const LineThree = () => {
              <div>
               <img src="/images/gucci.svg" alt="versace" />
             </div>
-             <div className="justify-self-center">
+             <div className="">
               <img src="/images/prada.svg" alt="versace" />
             </div>
-             <div className="justify-self-center">
+             <div className="">
               <img src="/images/klein.svg" alt="versace" />
             </div>
         </div>
