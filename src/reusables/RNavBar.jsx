@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
-import LineThree from "./LineThree";
-import SignUp from "../auth/SignUp";
-import Login from "../auth/Login";
 import { useNavigate } from "react-router";
 
 
-const NavBar = () => {
+const RNavBar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showLoginMenu, setShowLoginMenu] = useState(false)
   const navigate = useNavigate();
@@ -46,7 +43,7 @@ const NavBar = () => {
           <li className="cursor-pointer hover:text-gray-500">New Arrivals</li>
           <li className="cursor-pointer hover:text-gray-500">Brands</li>
         </ul>
-        <div className={`hidden sm:flex sm:flex-row items-center border rounded-full px-1 py-2 sm:px-5 md:px-8 lg:px-32 gap-2 bg-gray-100 relative font-light overflow-hidden`}>
+        <div className={`hidden sm:flex sm:flex-row items-center border rounded-full px-1 py-2 sm:px-5 md:px-8 lg:px-32 gap-2 bg-gray-100 relative font-light`}>
             <FaSearch className="left-3 text-lg text-gray-400"/>
             <input type="text" placeholder="Search for products..." id="" className="bg-transparent w-full border-none focus:outline-none" />
         </div>
@@ -57,7 +54,6 @@ const NavBar = () => {
         </div>
         <button onClick={navigateToLogin} className="hidden md:block bg-black px-8 py-2 rounded-full text-white">Sign up</button>
       </div>
-      <LineThree/>
 
       {/* --------mobile-menu----- */}
       <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out`}>
@@ -72,13 +68,13 @@ const NavBar = () => {
           <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">New Arrivals</li>
           <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Brands</li>
         </ul>
-        <div className="flex flex-row items-center border:none bg-white rounded-full px-6 py-3 gap-2 mx-5 overflow-hidden">
+        <div className="flex flex-row items-center border:none bg-white rounded-full px-6 py-3 gap-2 mx-5">
         <FaSearch className="left-3 text-lg text-gray-400"/>
-        <input type="text" placeholder="Search for products..." id="" className="bg-transparent text-xl w-full border-none focus:outline-none mb-1 text-black overflow-hidden" />
+        <input type="text" placeholder="Search for products..." id="" className="bg-transparent text-xl w-full border-none focus:outline-none mb-1 text-black" />
         </div>
       </div>
     </div>
   );
 };
 
-export default NavBar;
+export default RNavBar;

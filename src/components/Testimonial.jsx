@@ -13,8 +13,37 @@ const Testimonial = () => {
     const[commentToShow, setCommentToShow] = useState(1);
 
   useEffect(()=>{
+    const updateCommentToShow = ()=>{
+      if(window.innerWidth >= 1024){
+        setCommentToShow(testimonialsData.length)
+      }else{
+        setCommentToShow(1)
+      };
+    }
     
-  })
+    updateCommentToShow();
+    window.addEventListener('resize', updateCommentToShow);
+    return ()=> window.removeEventListener('resize', updateCommentToShow)
+  },[])
+
+  const nextComment = ()=> {
+    setCurrentIndex((prevIndex)=>{
+      if(prevIndex === testimonialsData.length-3){
+        return prevIndex;
+      }else{
+        return prevIndex + 1;
+      }
+    })
+  }
+  const prevComment = ()=> {
+    setCurrentIndex((prevIndex)=>{
+      if(prevIndex === 0){
+        return prevIndex;
+      }else{
+        return prevIndex - 1;
+      }
+    })
+  }
   const ratingStars = (rating)=>{
     return Array.from({length: 5}, (_, index)=>{
         if(index < Math.floor(rating)){
@@ -32,22 +61,22 @@ const Testimonial = () => {
     })
   }
   return (
-    <div className="container mx-auto w-full py-8 overflow-hidden">
+    <div className="container mx-auto w-full py-8 overflow-hidden mb-24">
       <div className="flex justify-between px-4 sm:px-2">
         <h1 className="font-extrabold text-4xl sm:text-5xl max-w-96 md:max-w-fit">
           OUR HAPPY CUSTOMERS
         </h1>
         <div className="flex gap-3">
-          <button>
+          <button onClick={prevComment} className="transition-all duration-500 ease-in-out" aria-label="Previous Project">
             <FaArrowLeft />
           </button>
-          <button>
+          <button onClick={nextComment} className="transition-all duration-500 ease-in-out" aria-label="Next Project">
             <FaArrowRight />
           </button>
         </div>
       </div>
       <div className="overflow-hidden px-3 mt-5">
-        <div className="flex gap-4 transition-transform duration-500 ease-in-out overflow-x-auto scroll-smooth" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
+        <div className="flex gap-4 transition-transform duration-500 ease-in-out overscroll-x-auto scroll-smooth" style={{scrollbarWidth: 'none', msOverflowStyle: 'none', transform: `translateX(-${(currentIndex * 100) / commentToShow}%)`}}>
           {testimonialsData.map((testimonial, index) => (
             <div
               key={index}

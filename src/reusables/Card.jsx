@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Card = (props) => {
     const {data, imageField, isLoading, isError} = props;
-    console.log("from card: ",data)
+    // console.log("from card: ",data)
     
   return (
     <div className='overflow-hidden grid grid-cols-1 cursor-pointer'>
