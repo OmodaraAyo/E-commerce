@@ -21,7 +21,7 @@ const Card = (props) => {
         <div className='flex gap-8 transition-transform duration-500 ease-in-out items-center'>
         {data.map((product)=>(
           <div key={product.id} className='relative flex-shrink-0 w-[200px] sm:w-[295px] bg-none'>
-            <div className='inline-block w-3/4 md:w-4/5'>
+            <div className='inline-block  md:w-4/5'>
             <h2 className='font-bold text-black '>{product.title}</h2>
             <div className='flex items-center'>
               {Array.from({length: 5}, (_, index) =>{
