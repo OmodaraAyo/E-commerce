@@ -20,9 +20,24 @@ const Footer = () => {
         <div className="container mx-auto flex flex-col md:flex-row justify-between gap-10 items-start px-8 sm:px-5 w-full">
             <div className="w-full md:w-1/3 mb-0">
             <img src="/images/SHOP.CO.svg" alt="shop.co" />
-            <p className="text-[#00000099] mt-4 max-w-auto lg:max-w-72 text-left font-normal">We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
+            <p className="text-[#00000099] mt-4 max-w-auto lg:max-w-72 text-left font-normal mb-3">We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
+            <div className="flex gap-4">
+            <div className="w-8 h-8 bg-white flex justify-center items-center rounded-full border-2 border-gray-400">
+                <img src="/images/twitter.svg" alt="" />
             </div>
-            <div className="grid grid-cols-2 gap-4 lg:gap-20 w-full md:grid-cols-4">
+             <div className="w-8 h-8 bg-black flex justify-center items-center rounded-full border-2 border-black">
+                <img src="/images/fb.svg" alt="" />
+            </div>
+             <div className="w-8 h-8 bg-white flex justify-center items-center rounded-full border-2 border-gray-400">
+                <img src="/images/instagram.svg" alt="" />
+            </div>
+             <div className="w-8 h-8 bg-white flex justify-center items-center rounded-full border-2 border-gray-400">
+                <img src="/images/github.svg" alt="" />
+            </div>
+            
+              </div>
+             </div>
+            <div className="grid grid-cols-2 gap-4 lg:gap-20 w-full md:grid-cols-4 mb-8">
             <div className="w-full md:w-1/5 mb-8 md:mb-0">
                 <h3 className="text-black text-lg font-bold mb-4">COMPANY</h3>
                 <ul className="flex flex-col gap-2 text-[#00000099] cursor-pointer">
@@ -41,7 +56,7 @@ const Footer = () => {
                    <li className="hover:text-gray-400">Privacy Policy</li>
                 </ul>
             </div>
-            <div className="w-full md:w-1/5 mb-8 md:mb-0">
+            <div className="w-full mb-8 md:mb-0">
                 <h3 className="text-black text-lg font-bold mb-4">FAQ</h3>
                 <ul className="flex flex-col gap-2 text-[#00000099] cursor-pointer">
                    <li className="hover:text-gray-400">Account</li>
@@ -59,6 +74,26 @@ const Footer = () => {
                    <li className="hover:text-gray-400">Youtube Playlist</li>
                 </ul>
             </div>
+            </div>
+        </div>
+        <div className="container mx-auto w-full border-t-2 px-8 sm:px-5 py-3 grid grid-cols-1 gap-3 md:grid-cols-2 justify-center items-center">
+            <h2 className="flex flex-row justify-self-center md:justify-self-start text-gray-400">Shop.co &copy; 2000-2028, All Rights Reserved</h2>
+            <div className="flex flex-row gap-4 justify-self-center md:justify-self-end">
+                <div className="bg-white w-[46.61px] h-[30.03px] flex justify-center items-center border shadow-lg rounded-md">
+                    <img src="/images/Visa.svg" alt="" />
+                </div>
+                <div className="bg-white w-[46.61px] h-[30.03px] flex justify-center items-center border shadow-lg rounded-md">
+                    <img src="/images/Mastercard.svg" alt="" />
+                </div>
+                <div className="bg-white w-[46.61px] h-[30.03px] flex justify-center items-center border shadow-lg rounded-md">
+                    <img src="/images/Paypal.svg" alt="" />
+                </div>
+                <div className="bg-white w-[46.61px] h-[30.03px] flex justify-center items-center border shadow-lg rounded-md">
+                    <img src="/images/ApplePay.svg" alt="" />
+                </div>
+                <div className="bg-white w-[46.61px] h-[30.03px] flex justify-center items-center border shadow-lg rounded-md">
+                    <img src="/images/GPay.svg" alt="" />
+                </div>
             </div>
         </div>
       </div>
