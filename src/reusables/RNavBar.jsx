@@ -55,7 +55,7 @@ const RNavBar = () => {
       </div>
 
       {/* --------mobile-menu----- */}
-      <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out`}>
+      <div className={`xl:hidden ${showMobileMenu ? 'absolute w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out`}>
         <div className="flex justify-end p-6 cursor-pointer">
           <button onClick={()=>{setShowMobileMenu(false)}}>
           <FaTimes className="w-10 text-3xl"/>
