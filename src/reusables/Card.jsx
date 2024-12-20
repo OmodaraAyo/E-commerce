@@ -10,7 +10,7 @@ const Card = (props) => {
       <div className='overflow-x-auto scroll-smooth' style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
         <div className='flex gap-8 transition-transform duration-500 ease-in-out'>
          {data.map((product)=>(
-          <div onClick={()=> onCardClick(product.id)} key={product.id} className='relative flex-shrink-0 sm:w-[295px] h-full bg-[#F2F0F1] rounded-2xl'>
+          <div onClick={()=> onCardClick(product.id)} key={product.id} className='flex-shrink-0 sm:w-[295px] h-full bg-[#F2F0F1] rounded-2xl'>
             <div>
             <img src={product[imageField]} alt={product.title} className='w-[198.67px] md:w-[296px] h-auto md:h-[298px] justify-self-center'/>
             </div>
@@ -20,7 +20,7 @@ const Card = (props) => {
         
         <div className='flex gap-8 transition-transform duration-500 ease-in-out items-center'>
         {data.map((product)=>(
-          <div key={product.id} className='relative flex-shrink-0 w-[200px] sm:w-[295px] bg-none'>
+          <div key={product.id} className='flex-shrink-0 w-[200px] sm:w-[295px] bg-none'>
             <div className='inline-block  md:w-4/5'>
             <h2 className='font-bold text-black '>{product.title}</h2>
             <div className='flex items-center'>

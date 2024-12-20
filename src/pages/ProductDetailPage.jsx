@@ -25,13 +25,13 @@ const ProductDetailPage = () => {
               <img src={data.thumbnail} alt={data.title} className="w-[400px]"/>
             </div>
             <div className="grid grid-cols-3 md:grid-cols-1 gap-3 md:gap-3">
-              <div className="relative flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
+              <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
                 <img src={data.thumbnail} alt={data.title}/>
               </div>
-              <div className="relative flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
+              <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
                 <img src={data.thumbnail} alt={data.title} />
               </div>
-              <div className="relative flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
+              <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
                 <img src={data.thumbnail} alt={data.title} />
               </div>
             </div>
