@@ -44,31 +44,3 @@ const Card = (props) => {
 
 export default Card
 
-
-// import React from "react";
-
-// const Card = (props) => {
-//   const { data, isLoading, isError } = props;
-//   console.log("from card: ", data);
-
-//   return (
-//     <div className="overflow-hidden">
-//       <div className="flex gap-8 transition-transform duration-500 ease-in-out">
-//         {data.map((product) => (
-//           <div key={product.id}>
-//             {/* <img src={product.thumbnail} alt={product.title} />
-//             <h2>{product.title}</h2>
-//             <div>{product.rating}</div>
-//             <div>{product.price}</div> */}
-//             <img src={product.image} alt={product.title} />
-//             <div>
-//               Rating: {product.rating?.rate} ({product.rating?.count} reviews)
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Card;

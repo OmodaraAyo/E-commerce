@@ -43,7 +43,7 @@ const LineThree = () => {
   },[])
   return (
     <div>
-      <div className='flex flex-col md:flex-row justify-center items-start py-0 w-full bg-[#F2F0F1] gap-1 px-7 md:pl-9 xl:px-40 overflow-hidden'>
+      <div className=' flex flex-col md:flex-row justify-center items-start py-0 w-full bg-[#F2F0F1] gap-1 px-7 md:pl-9 xl:px-40 overflow-hidden'>
         <div className='flex flex-col justify-center items-start'>
           <h1 className='text-6xl sm:text-7xl md:text-[75px] max-w-full font-semibold mt-20'>
             FIND CLOTHES THAT MATCHES YOUR STYLE
@@ -69,7 +69,7 @@ const LineThree = () => {
             </div>
           </div>
         </div>
-        <div className='absolute mt-[760px] md:mt-[300px] md:ml-60 h-0 top-0 z-30 lg:ml-28'>
+        <div className='absolute mt-[860px] md:mt-[300px] md:ml-60 h-0 top-0 z-30 lg:ml-28'>
         <img src="/images/sun_star.svg" alt="" className=''/>
         </div>
         <div className='flex sm:mt-12 md:w-screen '>
