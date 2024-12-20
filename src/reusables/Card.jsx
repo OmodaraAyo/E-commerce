@@ -2,7 +2,7 @@ import React from 'react'
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Card = (props) => {
-    const {data, imageField, isLoading, isError} = props;
+    const {data, imageField, onCardClick} = props;
     // console.log("from card: ",data)
     
   return (
@@ -10,7 +10,7 @@ const Card = (props) => {
       <div className='overflow-x-auto scroll-smooth' style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
         <div className='flex gap-8 transition-transform duration-500 ease-in-out'>
          {data.map((product)=>(
-          <div key={product.id} className='relative flex-shrink-0 sm:w-[295px] h-full bg-[#F2F0F1] rounded-2xl'>
+          <div onClick={()=> onCardClick(product.id)} key={product.id} className='relative flex-shrink-0 sm:w-[295px] h-full bg-[#F2F0F1] rounded-2xl'>
             <div>
             <img src={product[imageField]} alt={product.title} className='w-[198.67px] md:w-[296px] h-auto md:h-[298px] justify-self-center'/>
             </div>

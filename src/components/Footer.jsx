@@ -94,6 +94,7 @@ const Footer = () => {
                 <div className="bg-white w-[46.61px] h-[30.03px] flex justify-center items-center border shadow-lg rounded-md">
                     <img src="/images/GPay.svg" alt="" />
                 </div>
+                {/* <i></i> */}
             </div>
         </div>
       </div>

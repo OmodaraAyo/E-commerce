@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 
 const RNavBar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [showLoginMenu, setShowLoginMenu] = useState(false)
   const navigate = useNavigate();
 
   const handleOnclick = ()=> {
@@ -32,9 +31,9 @@ const RNavBar = () => {
       <h1>Sign up and get 20% off to your first order.</h1>
       <button onClick={handleOnclick} className="underline underline-offset-4 decoration-1 hover:text-blue-600">Sign Up Now</button>
       </div>
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-1 mb-3 lg:px-9 bg-transparent">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-1 mb-3 lg:px-0 bg-transparent">
         <div className="flex gap-4 justify-center items-center">
-        <img onClick={()=>{setShowMobileMenu(true)}} src="/images/black_menu.svg" alt="" className="xl:hidden w-7 cursor-pointer " />
+        <img onClick={()=>{setShowMobileMenu(true)}} src="/images/black_menu.svg" alt="" className="xl:hidden w-7 cursor-pointer" />
         <img src="/images/SHOP.CO.svg" alt="shop-logo" />
         </div>
         <ul className="hidden xl:flex gap-7 text-neutral-950">

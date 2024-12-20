@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import SignUp from "../auth/SignUp";
 import Layout from "../layout/Layout";
 import ViewAll from "../pages/ViewAll";
+import ProductDetailPage from "../pages/ProductDetailPage";
 
 const ROUTES = [
     {
@@ -29,6 +30,10 @@ const ROUTES = [
     {
         path:"/home/all-product",
         element: <ViewAll/>
+    },
+    {
+        path: "/product/:productId",
+        element: <ProductDetailPage />
     }
 ]
 export default ROUTES;
