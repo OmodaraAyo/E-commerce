@@ -65,7 +65,10 @@ const NavBar = () => {
         </div>
         <div className="flex flex-wrap gap-3 justify-center items-center">
             <button onClick={()=>{setShowMobileMenu(true)}} className="sm:hidden"><FaSearch className="text-xl mt-1"/></button>
-            <img src="/images/shopping_basket.svg" alt="" className="w-6" />
+            <div className="cart-box">
+              <button><img src="/images/shopping_basket.svg" alt="" className="w-6" /></button>
+              <span>2</span>
+            </div>
             <img src="/images/user_circle.svg" alt="" className="w-6"/>
             {isAuthenticated && (
                <button onClick={handleLogout}><FaSignOutAlt className="sign-out text-2xl text-red-600 hover:text-red-700"/></button>

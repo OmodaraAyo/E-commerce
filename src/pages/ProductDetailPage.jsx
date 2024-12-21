@@ -10,7 +10,8 @@ const ProductDetailPage = () => {
   const { data, isLoading, isError } = useGetProductByIdQuery(productId);
   console.log(data);
   const [selectedSize, setSelectedSize] = useState(null);
-
+  const [count, setCount] = useState(1);
+  
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -22,24 +23,29 @@ const ProductDetailPage = () => {
     setSelectedSize(selectedSize === size? null : size);
   }
 
+  const increaseCount = () => setCount(count + 1);
+  const decreaseCount = () => {
+    if (count > 1) setCount(count - 1);
+  }
+ 
   return (
     <div>
       <NavBar/>
       <div className="container mx-auto border-t-2 border-gray-200">
         <div className="md:flex gap-12 mt-5 px-5 sm:px-5 md:px-0">
             {/* images container */}
-          <div className="flex flex-col justify-self-center lg:flex-row-reverse lg:justify-self-start gap-5 cursor-pointer">
+          <div className="flex flex-col justify-self-center xl:flex-row-reverse lg:justify-self-start gap-5 cursor-pointer">
             <div className="flex flex-shrink-0 justify-center items-center w-auto h-auto bg-[#F2F0F1] rounded-2xl">
-              <img src={data.thumbnail} alt={data.title} className="w-[400px]"/>
+              <img src={data.thumbnail} alt={data.title} className="w-[400px] md:w-[450px]"/>
             </div>
-            <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-1 gap-3 md:gap-3">
-              <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
+            <div className="grid grid-cols-3 gap-3 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4 xl:grid-cols-1">
+              <div className="flex-shrink-0 md:w-[152px] lg:w-[142px] xl:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
                 <img src={data.images[0]} alt={data.title}/>
               </div>
-              <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
+              <div className="flex-shrink-0 md:w-[152px] lg:w-[142px] xl:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl ">
                 <img src={data.images[2]} alt={data.title} />
               </div>
-              <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
+              <div className="flex-shrink-0 md:w-[152px] lg:w-[142px] xl:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
                 <img src={data.images[3]} alt={data.title} />
               </div>
             </div>
@@ -82,8 +88,14 @@ const ProductDetailPage = () => {
                     </div>
                 </div>
             </div>
-            <div className=" container border-t-2 border-gray-200">
-                <div>Counter</div>
+            {/* counter */}
+            <div className="container flex justify-between items-center border-t-2 border-gray-200">
+                <div className="flex flex-row justify-between items-center text-3xl bg-[#F0F0F0] w-1/4 rounded-full px-5 mt-4">
+                    <button onClick={decreaseCount} className="flex font-semibold text-4xl pb-2 text-ellipsis">-</button>
+                    <span className="flex text-lg">{count}</span>
+                    <button onClick={increaseCount} className="font-semibold pb-2">+</button>
+                </div>
+                <button className="w-full max-w-[306px] sm:max-w-[410px] md:max-w-[300px] lg:max-w-[380px] xl:max-w-[432px] bg-black hover:bg-black focus:outline-none focus:ring-1 focus:ring-black transition-all text-white lg:mr-1 xl:mr-0 py-3 rounded-full mt-4 font-light ">Add to Cart</button>
             </div>
           </div>
           {/* <p>{data.description}</p> */}

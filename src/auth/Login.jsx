@@ -48,7 +48,7 @@ const Login = () => {
         <form onSubmit={(e) => handlelogin(e)} className="max-w-2xl mx-auto md:w-11/12 fixed">
             <div className="flex flex-col gap-4 w-96 md:w-full text-black">
               <div>
-                <h1 className="text-[#1b1919] flex justify-self-start">EMAIL</h1>
+                <label htmlFor="email" className="text-[#1b1919] flex justify-self-start">EMAIL</label>
                 <input
                   type="email"
                   name="email"
@@ -60,7 +60,7 @@ const Login = () => {
                 />
               </div>
               <div>
-                <h1 className="text-[#1b1919] flex justify-self-start">Password</h1>
+                <label htmlFor="password" className="text-[#1b1919] flex justify-self-start">Password</label>
                 <input
                   type="password"
                   name="password"
