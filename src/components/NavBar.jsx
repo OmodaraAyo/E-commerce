@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { FaSearch, FaTimes } from "react-icons/fa";
-import LineThree from "./LineThree";
-import SignUp from "../auth/SignUp";
-import Login from "../auth/Login";
+import { FaSearch, FaSignOutAlt, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../auth/authSlice";
 
 
 const NavBar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [showLoginMenu, setShowLoginMenu] = useState(false)
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () =>{
+    dispatch(logout())
+    navigate("/home")
+  }
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
 
   const handleOnclick = ()=> {
     navigate("/signup")
@@ -31,10 +37,17 @@ const NavBar = () => {
 
   return (
     <div className="top-0 left-0 w-full">
-      <div className="flex flex-row justify-center items-center w-full bg-black text-white py-3 gap-1 font-light">
-      <h1>Sign up and get 20% off to your first order.</h1>
-      <button onClick={handleOnclick} className="underline underline-offset-4 decoration-1 hover:text-blue-600">Sign Up Now</button>
-      </div>
+     {!isAuthenticated && (
+         <div className="flex flex-row justify-center items-center w-full bg-black text-white py-3 gap-1 font-light">
+         <h1>Sign up and get 20% off to your first order.</h1>
+         <button onClick={handleOnclick} className="underline underline-offset-4 decoration-1 hover:text-blue-600">Sign Up Now</button>
+         </div>
+     )}
+     {isAuthenticated && (
+         <div className="flex flex-row justify-center items-center w-full bg-black text-white py-3 gap-1 font-light">
+         <h1>Welcome back! get 20% off to your first order.</h1>
+         </div>
+     )}
       <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-1 mb-3 lg:px-9 bg-transparent">
         <div className="flex gap-4 justify-center items-center">
         <img onClick={()=>{setShowMobileMenu(true)}} src="/images/black_menu.svg" alt="" className="xl:hidden w-7 cursor-pointer " />
@@ -54,10 +67,14 @@ const NavBar = () => {
             <button onClick={()=>{setShowMobileMenu(true)}} className="sm:hidden"><FaSearch className="text-xl mt-1"/></button>
             <img src="/images/shopping_basket.svg" alt="" className="w-6" />
             <img src="/images/user_circle.svg" alt="" className="w-6"/>
+            {isAuthenticated && (
+               <button onClick={handleLogout}><FaSignOutAlt className="sign-out text-2xl text-red-600 hover:text-red-700"/></button>
+            )}
         </div>
-        <button onClick={navigateToLogin} className="hidden md:block bg-black px-8 py-2 rounded-full text-white">Sign up</button>
+       {!isAuthenticated && (
+           <button onClick={navigateToLogin} className="hidden md:block bg-black px-8 py-2 rounded-full text-white">Sign up</button>
+       )}
       </div>
-      <LineThree/>
 
       {/* --------mobile-menu----- */}
       <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out`}>

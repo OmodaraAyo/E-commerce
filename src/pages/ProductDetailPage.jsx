@@ -1,12 +1,15 @@
-import React from "react";
-import RNavBar from "../reusables/RNavBar";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import { useGetProductByIdQuery } from "../service/shopApi";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import NavBar from "../components/NavBar";
+
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
   const { data, isLoading, isError } = useGetProductByIdQuery(productId);
   console.log(data);
+  const [selectedSize, setSelectedSize] = useState(null);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -15,30 +18,73 @@ const ProductDetailPage = () => {
     return <div>Error getting product</div>;
   }
 
+  const handleSizeClick = (size)=>{
+    setSelectedSize(selectedSize === size? null : size);
+  }
+
   return (
     <div>
-      <RNavBar />
+      <NavBar/>
       <div className="container mx-auto border-t-2 border-gray-200">
-        <div className="flex flex-row gap-12 mt-5 px-5 sm:px-5 md:px-0">
-          <div className="flex flex-col justify-self-center md:flex-row-reverse md:justify-self-start gap-5">
+        <div className="md:flex gap-12 mt-5 px-5 sm:px-5 md:px-0">
+            {/* images container */}
+          <div className="flex flex-col justify-self-center lg:flex-row-reverse lg:justify-self-start gap-5 cursor-pointer">
             <div className="flex flex-shrink-0 justify-center items-center w-auto h-auto bg-[#F2F0F1] rounded-2xl">
               <img src={data.thumbnail} alt={data.title} className="w-[400px]"/>
             </div>
-            <div className="grid grid-cols-3 md:grid-cols-1 gap-3 md:gap-3">
+            <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-1 gap-3 md:gap-3">
               <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
-                <img src={data.thumbnail} alt={data.title}/>
+                <img src={data.images[0]} alt={data.title}/>
               </div>
               <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
-                <img src={data.thumbnail} alt={data.title} />
+                <img src={data.images[2]} alt={data.title} />
               </div>
               <div className="flex-shrink-0 md:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
-                <img src={data.thumbnail} alt={data.title} />
+                <img src={data.images[3]} alt={data.title} />
               </div>
             </div>
           </div>
-          {/* <img src={data.thumbnail} alt={data.title} /> */}
-          <div className="">
+          {/* details component*/}
+          <div className="flex flex-col gap-2 ">
             <h1 className="font-extrabold text-[46px]">{data.title.toUpperCase()}</h1>
+            <div className="flex items-center gap-2">
+                {Array.from({length : 5}, (_, index)=>{
+                    if(index < Math.floor(data.rating)){
+                        return <FaStar key={index} className='text-yellow-300'/>
+                    }else if(index < data.rating){
+                        return <div key={index} className="flex items-center gap-3"><FaStarHalfAlt className="text-yellow-300"/><div className='font-light'>{data.rating}/<span className='font-light text-gray-500'>5</span></div></div>
+                    }
+                })
+                }
+            </div>
+            <div className="flex gap-4">
+            <h2 className="font-semibold text-2xl text-black">${(data.price - (data.price * data.discountPercentage / 100)).toFixed(2)}</h2>
+            <h2 className="font-semibold text-2xl text-zinc-400 line-through">${data.price}</h2>
+            <div className="flex justify-center items-center rounded-full bg-[#FF33331A] w-[72px] h-[34px]">
+                <h3 className="text-[#FF3333] font-light text-lg">-{Math.ceil(data.discountPercentage)}%</h3>
+            </div>
+            </div>
+            <h2 className="max-w-lg md:max-w-sm xl:max-w-xl text-[#00000099] mb-3">{data.description}</h2>
+            <div className=" container border-t-2 border-gray-200">
+                <div className="color-container mt-3">
+                    <h1 className="text-[#00000099] font-light text-md mb-3">Select Color</h1>
+                    <h2 className="flex justify-self-center text-[#00000099]">No Other Colors Available At The Moment</h2>
+                </div>
+            </div>
+            <div className=" container border-t-2 border-gray-200 mb-2">
+                <div className="color-container mt-3">
+                    <h1 className="text-[#00000099] font-light text-md mb-3">Choose Size</h1>
+                    <div className="flex flex-row gap-4 cursor-pointer">
+                        <button onClick={()=>{handleSizeClick('small')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'small' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Small</button>
+                        <button onClick={()=>{handleSizeClick('medium')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'medium' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Medium</button>
+                        <button onClick={()=>{handleSizeClick('large')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'large' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Large</button>
+                        <button onClick={()=>{handleSizeClick('xlarge')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'xlarge' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>X Large</button>
+                    </div>
+                </div>
+            </div>
+            <div className=" container border-t-2 border-gray-200">
+                <div>Counter</div>
+            </div>
           </div>
           {/* <p>{data.description}</p> */}
         </div>

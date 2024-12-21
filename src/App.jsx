@@ -1,10 +1,23 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ROUTES from "./routes/router"
+import { useDispatch } from 'react-redux'
+import { login } from './auth/authSlice'
 
 const routes = createBrowserRouter([...ROUTES])
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() =>{
+    const email = localStorage.getItem("email")
+    const password = localStorage.getItem("password")
+    const isAuthenticated = localStorage.getItem("isAuthenticated")
+
+    if(isAuthenticated && email && password){
+      dispatch(login({email, password}))
+    }
+  }, [dispatch])
   
   return (
     <div>
