@@ -74,11 +74,11 @@ const ProductDetailPage = () => {
             <div className=" container border-t-2 border-gray-200 mb-2">
                 <div className="color-container mt-3">
                     <h1 className="text-[#00000099] font-light text-md mb-3">Choose Size</h1>
-                    <div className="flex flex-row gap-4 cursor-pointer">
-                        <button onClick={()=>{handleSizeClick('small')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'small' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Small</button>
-                        <button onClick={()=>{handleSizeClick('medium')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'medium' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Medium</button>
-                        <button onClick={()=>{handleSizeClick('large')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'large' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Large</button>
-                        <button onClick={()=>{handleSizeClick('xlarge')}} className={`bg-[#F0F0F0] w-auto px-5 py-3 rounded-full  ${selectedSize === 'xlarge' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>X Large</button>
+                    <div className="flex flex-row gap-2 sm:gap-4 cursor-pointer">
+                        <button onClick={()=>{handleSizeClick('small')}} className={`bg-[#F0F0F0] w-auto h-auto px-5 py-3 rounded-full  ${selectedSize === 'small' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Small</button>
+                        <button onClick={()=>{handleSizeClick('medium')}} className={`bg-[#F0F0F0] w-auto h-auto px-5 py-3 rounded-full  ${selectedSize === 'medium' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Medium</button>
+                        <button onClick={()=>{handleSizeClick('large')}} className={`bg-[#F0F0F0] w-auto h-auto px-5 py-3 rounded-full  ${selectedSize === 'large' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>Large</button>
+                        <button onClick={()=>{handleSizeClick('xlarge')}} className={`bg-[#F0F0F0] w-auto h-auto px-5 py-3 rounded-full  ${selectedSize === 'xlarge' ? 'bg-black text-white': 'hover:bg-gray-400 hover:text-white'}`}>X Large</button>
                     </div>
                 </div>
             </div>
