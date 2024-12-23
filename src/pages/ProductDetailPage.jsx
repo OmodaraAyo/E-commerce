@@ -38,7 +38,9 @@ const ProductDetailPage = () => {
   }
   const handleAddToCart = (data) =>{
     if(!selectedSize){
-      toast.error("please select a size")
+      toast.error("please select a size", {
+        position: "bottom-right"
+      })
       return;
     }
     const quantityCount = count;

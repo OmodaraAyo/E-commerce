@@ -31,7 +31,6 @@ const authSlice = createSlice({
             
            if(email === storedEmail && password === storedPassword){
             state.isAuthenticated = true;
-            state.error = null;
             localStorage.setItem("isAuthenticated", 'true')
            }else {
             state.isAuthenticated = false;
@@ -50,16 +49,9 @@ const authSlice = createSlice({
             // localStorage.removeItem('password')
             // localStorage.removeItem("isAuthenticated")
         },
-        loginFailure: (state, action) => {
-            state.loading = false;
-            // state.error = action.payload;
-        },
-        setLoading: (state) => {
-            state.loading = true;
-        }
     }
 })
 
-export const {setCredentials, login, logout, loginFailure, setLoading} = authSlice.actions;
+export const {setCredentials, login, logout} = authSlice.actions;
 
 export default authSlice.reducer;

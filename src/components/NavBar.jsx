@@ -3,6 +3,7 @@ import { FaSearch, FaSignOutAlt, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../auth/authSlice";
+import { toast } from "react-toastify";
 
 
 const NavBar = () => {
@@ -12,6 +13,7 @@ const NavBar = () => {
 
   const handleLogout = () =>{
     dispatch(logout())
+    toast.success('You have successfully logged out')
     navigate("/home")
   }
 

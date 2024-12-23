@@ -3,11 +3,11 @@ import { FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "./authSlice";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [errorMessage, setErrorMessage] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -19,15 +19,17 @@ const Login = () => {
 
     if(email === storedEmail && password === storedPassword){
       dispatch(login({email, password}))
+      toast.success("Login Successful")
       navigate("/home")
-    }else[
-      setErrorMessage("Invalid email or password")
-    ]
+    }else{
+      toast.error("Invalid email or password")
+    }
   }
 
   const navigateToHome = ()=>{
     navigate("/home")
   }
+  
   return (
     <div className="">
         <div className={`w-full h-full overflow-hidden fixed`}>
@@ -71,9 +73,6 @@ const Login = () => {
                   required
                 />
               </div>
-              {errorMessage && (
-                <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
-              )}
               <button type="submit" className="bg-[#1b1919] hover:bg-black hover:text-gray-300 text-white text-2xl font-semibold py-3 mb-5 rounded-md cursor-pointer">
                 Sign In
               </button>
