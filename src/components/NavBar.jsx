@@ -48,10 +48,10 @@ const NavBar = () => {
          <h1>Welcome back! get 20% off to your first order.</h1>
          </div>
      )}
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-1 mb-3 lg:px-9 bg-transparent">
-        <div className="flex gap-4 justify-center items-center">
-        <img onClick={()=>{setShowMobileMenu(true)}} src="/images/black_menu.svg" alt="" className="xl:hidden w-7 cursor-pointer " />
-        <img src="/images/SHOP.CO.svg" alt="shop-logo" />
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-2 mb-3 bg-transparent">
+        <div className="flex gap-3 justify-center items-center">
+        <img onClick={()=>{setShowMobileMenu(true)}} src="/images/black_menu.svg" alt="" className="xl:hidden w-6 sm:w-7 cursor-pointer " />
+        <img src="/images/SHOP.CO.svg" alt="shop-logo" className="w-32 sm:w-[156px]"/>
         </div>
         <ul className="hidden xl:flex gap-7 text-neutral-950">
           <li className="cursor-pointer hover:text-gray-500">Shop</li>
@@ -59,19 +59,19 @@ const NavBar = () => {
           <li className="cursor-pointer hover:text-gray-500">New Arrivals</li>
           <li className="cursor-pointer hover:text-gray-500">Brands</li>
         </ul>
-        <div className={`hidden sm:flex sm:flex-row items-center border rounded-full px-1 py-2 sm:px-5 md:px-8 lg:px-32 gap-2 bg-gray-100 relative font-light overflow-hidden`}>
-            <FaSearch className="left-3 text-lg text-gray-400"/>
+        <button className={`hidden sm:flex sm:flex-row items-center border rounded-full px-4 py-2 gap-2 bg-gray-100 font-light overflow-hidden w-full max-w-60 md:max-w-sm lg:max-w-lg outline-none`}>
+            <FaSearch className="flex justify-self-start text-lg text-gray-400"/>
             <input type="text" placeholder="Search for products..." id="" className="bg-transparent w-full border-none focus:outline-none" />
-        </div>
-        <div className="flex flex-wrap gap-3 justify-center items-center">
-            <button onClick={()=>{setShowMobileMenu(true)}} className="sm:hidden"><FaSearch className="text-xl mt-1"/></button>
-            <div className="cart-box">
-              <button><img src="/images/shopping_basket.svg" alt="" className="w-6" /></button>
-              <span>2</span>
+        </button>
+        <div className="flex flex-wrap gap-2 justify-center items-center">
+            <button onClick={()=>{setShowMobileMenu(true)}} className="sm:hidden"><FaSearch className="text-lg "/></button>
+            <div className="cart-box flex ">
+              <button><img src="/images/shopping_basket.svg" alt="" className="w-5 sm:w-6" /></button>
+              <span className="absolute w-5 h-5 bg-yellow-400 flex justify-center items-center rounded-full ml-2 top-14 sm:top-16 cursor-pointer"><p className="font-light text-sm">2</p></span>
             </div>
-            <img src="/images/user_circle.svg" alt="" className="w-6"/>
+            <img src="/images/user_circle.svg" alt="" className="w-5 sm:w-6"/>
             {isAuthenticated && (
-               <button onClick={handleLogout}><FaSignOutAlt className="sign-out text-2xl text-red-600 hover:text-red-700"/></button>
+               <button onClick={handleLogout}><FaSignOutAlt className="sign-out text-xl sm:text-2xl text-red-600 hover:text-red-700"/></button>
             )}
         </div>
        {!isAuthenticated && (
@@ -92,7 +92,7 @@ const NavBar = () => {
           <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">New Arrivals</li>
           <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Brands</li>
         </ul>
-        <div className="flex flex-row items-center border:none bg-white rounded-full px-6 py-3 gap-2 mx-5 overflow-hidden">
+        <div className="flex flex-row items-center border:none bg-white rounded-full px-4 py-2 gap-2 mx-5 overflow-hidden">
         <FaSearch className="left-3 text-lg text-gray-400"/>
         <input type="text" placeholder="Search for products..." id="" className="bg-transparent text-xl w-full border-none focus:outline-none mb-1 text-black overflow-hidden" />
         </div>

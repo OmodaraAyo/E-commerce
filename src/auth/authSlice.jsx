@@ -5,8 +5,6 @@ const initialState = {
     email: localStorage.getItem("email") || '',
     password: localStorage.getItem("password") || '',
     isAuthenticated: localStorage.getItem('isAuthenticated') === 'true' || false,
-    loading: false,
-    error: null,
 };
 
 const authSlice = createSlice({
@@ -54,7 +52,7 @@ const authSlice = createSlice({
         },
         loginFailure: (state, action) => {
             state.loading = false;
-            state.error = action.payload;
+            // state.error = action.payload;
         },
         setLoading: (state) => {
             state.loading = true;

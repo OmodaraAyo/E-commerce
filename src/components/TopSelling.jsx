@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router'
 const TopSelling = () => {
   const {data, isLoading, isError} = useGetProductsQuery();
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   const navigateToViewAllPage = ()=>{
     navigate("/home/all-product");
