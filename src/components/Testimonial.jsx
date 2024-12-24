@@ -28,7 +28,7 @@ const Testimonial = () => {
 
   const nextComment = ()=> {
     setCurrentIndex((prevIndex)=>{
-      if(prevIndex === testimonialsData.length-3){
+      if(prevIndex === testimonialsData.length-2){
         return prevIndex;
       }else{
         return prevIndex + 1;

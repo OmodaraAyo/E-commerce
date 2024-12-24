@@ -8,7 +8,6 @@ import { useGetMenProductByCaQuery } from '../service/utilsApi';
 
 const NewArrivals = (props) => {
     const {data, isLoading, isError} = useGetMenProductByCaQuery()
-    console.log("from New Arrival",data)
     const navigate = useNavigate()
 
     const navigateToViewAllPage = ()=> {

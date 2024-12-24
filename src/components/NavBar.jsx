@@ -10,6 +10,7 @@ const NavBar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { cartSize } = useSelector((state)=> state.cart)
 
   const handleLogout = () =>{
     dispatch(logout())
@@ -27,6 +28,9 @@ const NavBar = () => {
     navigate("/login")
   }
 
+  const navigateToCart = () =>{
+    navigate("/cart")
+  }
 
   useEffect(()=>{
     if(showMobileMenu){
@@ -62,14 +66,15 @@ const NavBar = () => {
           <li className="cursor-pointer hover:text-gray-500">Brands</li>
         </ul>
         <button className={`hidden sm:flex sm:flex-row items-center border rounded-full px-4 py-2 gap-2 bg-gray-100 font-light overflow-hidden w-full max-w-60 md:max-w-sm lg:max-w-lg outline-none`}>
-            <FaSearch className="flex justify-self-start text-lg text-gray-400"/>
+            <FaSearch className="flex justify-self-start text-lg text-gray-400 outline-none"/>
             <input type="text" placeholder="Search for products..." id="" className="bg-transparent w-full border-none focus:outline-none" />
         </button>
         <div className="flex flex-wrap gap-2 justify-center items-center">
             <button onClick={()=>{setShowMobileMenu(true)}} className="sm:hidden"><FaSearch className="text-lg "/></button>
             <div className="cart-box flex ">
-              <button><img src="/images/shopping_basket.svg" alt="" className="w-5 sm:w-6" /></button>
-              <span className="absolute w-5 h-5 bg-yellow-400 flex justify-center items-center rounded-full ml-2 top-14 sm:top-16 cursor-pointer"><p className="font-light text-sm">2</p></span>
+              <button onClick={()=> navigateToCart()}><img src="/images/shopping_basket.svg" alt="" className="w-5 sm:w-6" />
+              {cartSize === 0 ? '': <span className="absolute w-5 h-5 bg-yellow-400 flex justify-center items-center rounded-full ml-2 top-14 sm:top-16 cursor-pointer"><p className="font-light text-sm">{cartSize}</p></span>}
+              </button>
             </div>
             <img src="/images/user_circle.svg" alt="" className="w-5 sm:w-6"/>
             {isAuthenticated && (

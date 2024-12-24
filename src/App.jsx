@@ -18,6 +18,7 @@ const App = () => {
     if(isAuthenticated && email && password){
       dispatch(login({email, password}))
     }
+
   }, [dispatch])
   
   return (

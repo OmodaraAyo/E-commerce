@@ -3,10 +3,11 @@ import { useParams } from "react-router";
 import { useGetProductByIdQuery } from "../service/shopApi";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import NavBar from "../components/NavBar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./cart/cartSlice";
 import {useNavigate} from 'react-router'
 import { toast } from "react-toastify";
+import Footer from "../components/Footer"
 
 const ProductDetailPage = () => {
   const navigate = useNavigate()
@@ -14,6 +15,9 @@ const ProductDetailPage = () => {
   const { productId } = useParams();
   const [count, setCount] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
+  const cart = useSelector((state) => state.cart)
+  console.log("from productPage", cart)
+  // console.log("cartQUantity from productPage", cart?.cartItems[0].cartQuantity)
   const { data, isLoading, isError } = useGetProductByIdQuery(productId);
   console.log(data);
   
@@ -43,8 +47,8 @@ const ProductDetailPage = () => {
       })
       return;
     }
-    const quantityCount = count;
-    const sizeSelected = {...data, selectedSize, discountPrice: calculateDiscountPrice(data), quantityCount}
+    const tempQuantityCount = count;
+    const sizeSelected = {...data, selectedSize, discountPrice: calculateDiscountPrice(data), tempQuantityCount}
     dispatch(addToCart(sizeSelected))
     navigate('/cart')
   }
@@ -52,11 +56,11 @@ const ProductDetailPage = () => {
   return (
     <div>
       <NavBar/>
-      <div className="container mx-auto border-t-2 border-gray-200">
+      <div className="container mx-auto border-t-2 border-gray-200 mb-36">
         <div className="md:flex gap-12 mt-5 px-5 sm:px-5 md:px-0">
           <div className="images-container flex flex-col justify-self-center xl:flex-row-reverse lg:justify-self-start gap-5 cursor-pointer">
             <div className="flex flex-shrink-0 justify-center items-center w-auto h-auto bg-[#F2F0F1] rounded-2xl">
-              <img src={data.thumbnail} alt={data.title} className="w-[400px] md:w-[450px]"/>
+              <img src={data.thumbnail} alt={data.title} className="w-[400px] md:w-[440px]"/>
             </div>
             <div className="grid grid-cols-3 gap-3 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4 xl:grid-cols-1">
               <div className="flex-shrink-0 md:w-[152px] lg:w-[142px] xl:w-[152px] h-auto bg-[#F2F0F1] rounded-2xl">
@@ -72,7 +76,12 @@ const ProductDetailPage = () => {
           </div>
           {/* details component*/}
           <div className="flex flex-col gap-2 ">
-            <h1 className="font-extrabold text-[46px]">{data.title.toUpperCase()}</h1>
+            {data.id >= 93 && data.id < 97 || data.id >= 190 && data.id < 192?
+             (<h2 className="font-extrabold text-[37px]">{data.title.toUpperCase()}</h2>) : 
+             <h1 className="font-extrabold text-[46px]">{data.title.toUpperCase()}</h1>
+            }
+
+            {/* <h1 className="font-extrabold text-[46px]">{data.title.toUpperCase()}</h1> */}
             <div className="flex items-center gap-2">
                 {Array.from({length : 5}, (_, index)=>{
                     if(index < Math.floor(data.rating)){
@@ -121,6 +130,7 @@ const ProductDetailPage = () => {
           {/* <p>{data.description}</p> */}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
