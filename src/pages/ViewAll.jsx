@@ -42,6 +42,7 @@ const ViewAll = () => {
     }
 
     const navigateToProductDetailPage = (productId) => {
+      window.scrollTo(0,0);
       navigate(`/product/${productId}`);
     }
 

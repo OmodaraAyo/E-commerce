@@ -1,4 +1,4 @@
-import {React, useState } from "react";
+import {React, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useGetProductByIdQuery } from "../service/shopApi";
 import NavBar from "../components/NavBar";
@@ -19,9 +19,8 @@ const ProductDetailPage = () => {
   const [count, setCount] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const [showCurrentPage, setShowCurrentPage] = useState('ratingAndReviews')
-  // const cart = useSelector((state) => state.cart)
   const { data, isLoading, isError } = useGetProductByIdQuery(productId);
-  console.log(data);
+
   
   if (isLoading) {
     return <div>Loading...</div>;
@@ -32,12 +31,6 @@ const ProductDetailPage = () => {
   const calculateDiscountPrice = (data) => {
     const discountedPrice = data.price - (data.price * data.discountPercentage / 100);
     return discountedPrice.toFixed(2); 
-  }
-
-  const formatReviewerDate = (reviewer) =>{
-
-    const formattedDate = new Date(reviewer).toISOString().split('T')[0]
-    return formattedDate
   }
 
   const handleSizeClick = (size)=>{

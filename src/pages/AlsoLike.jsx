@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { useGetMenProductByCaQuery } from '../service/utilsApi';
 
 
-const AlsoLike = (props) => {
+const AlsoLike = () => {
     const {data, isLoading, isError} = useGetMenProductByCaQuery()
     const navigate = useNavigate()
 
@@ -20,6 +20,7 @@ const AlsoLike = (props) => {
   }
 
   const navigateToProductDetailPage = (productId) => {
+    window.scrollTo(0, 0);
     navigate(`/product/${productId}`);
   }
 

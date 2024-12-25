@@ -24,21 +24,21 @@ const RatingAndReviews = () => {
   return (
     <div className="container grid grid-cols-1 justify-self-center">
       <div className="reviews-ko container border-t-2 px-5 sm:px-2 py-5 flex flex-row justify-between mb-3">
-        <h1 className="font-bold font-sans text-3xl mt-2">
+        <h1 className="font-bold font-sans text-2xl sm:text-3xl sm:mt-2">
           All Reviews{" "}
-          <span className="text-[#00000099] font-light text-[1.27rem] mt-2">
+          <span className="text-[#00000099] font-light text-[1.14rem] sm:text-[1.27rem] mt-2">
             ({data.reviews.length})
           </span>
         </h1>
         <div className="buttons-container flex flex-row justify-between gap-2">
-          <button className="filter-Box w-12 h-12 sm:w-14 sm:h-14 flex justify-center items-center rounded-full bg-[#F0F0F0]">
+          <button className="filter-Box w-9 h-9 sm:w-14 sm:h-14 flex justify-center items-center rounded-full bg-[#F0F0F0]">
             <FaFilter className="text-sm" />
           </button>
           <button className="time-lapse hidden md:flex md:flex-row md:justify-between md:items-center md:bg-[#F0F0F0] md:rounded-full md:px-5 md:py-4 md:gap-3 font-sans">
             <p className="text-base">Latest</p>
             <MdArrowDropDown className="text-2xl" />
           </button>
-          <button className="write-A-Review bg-black rounded-full px-5 sm:py-4 text-white font-sans text-base">
+          <button className="write-A-Review bg-black rounded-full px-3 sm:py-4 text-white font-sans text-base">
             <span>Write a Review</span>
           </button>
         </div>

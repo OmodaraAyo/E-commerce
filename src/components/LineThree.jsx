@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 const LineThree = () => {
   const [showImage, setShowImage] = useState(false)
   const [showFlexImage, setShowFlexImage] = useState(false)
+  const navigate = useNavigate();
 
   useEffect(()=>{
     const checkScreenSize = ()=>{
@@ -41,6 +43,11 @@ const LineThree = () => {
     }
     
   },[])
+
+  const handleNavigateToAllProductsPage = () => {
+        navigate("/home/all-product")
+  }
+
   return (
     <div>
       <div className=' flex flex-col md:flex-row justify-center items-start py-0 w-full bg-[#F2F0F1] gap-1 px-7 md:pl-9 xl:px-40 overflow-hidden'>
@@ -51,7 +58,7 @@ const LineThree = () => {
           <p className='my-3 sm:max-w-sm md:max-w-screen-sm lg:max-w-lg grid grid-cols-1'>
             Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
           </p>
-          <button className="w-full sm:w-auto md:block bg-black px-8 py-4 rounded-full text-white">Shop Now</button>
+          <button onClick={handleNavigateToAllProductsPage} className="w-full sm:w-auto md:block bg-black px-8 py-4 rounded-full text-white">Shop Now</button>
           <div className='mt-5 text-gray-600 md:pb-5 lg:pb-16'>
             <div className='grid grid-cols-2 gap-8 md:gap-10 w-full 2xl:pr-28 sm:grid-cols-3'>
               <div className='border-r-2 border-gray-300'>
