@@ -69,7 +69,7 @@ const LineThree = () => {
             </div>
           </div>
         </div>
-        <div className='absolute mt-[860px] md:mt-[300px] md:ml-60 h-0 top-0 z-30 lg:ml-28'>
+        <div className='absolute mt-[860px] sm:mt-[970px] md:mt-[440px] md:ml-60 h-0 top-0 z-30 lg:ml-28'>
         <img src="/images/sun_star.svg" alt="" className=''/>
         </div>
         <div className='flex sm:mt-12 md:w-screen '>

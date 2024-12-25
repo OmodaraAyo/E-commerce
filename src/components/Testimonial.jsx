@@ -7,6 +7,7 @@ import {
   FaStar,
   FaStarHalfAlt,
 } from "react-icons/fa";
+import ratingStars from "../reusables/ratingStar";
 
 const Testimonial = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,22 +45,7 @@ const Testimonial = () => {
       }
     })
   }
-  const ratingStars = (rating)=>{
-    return Array.from({length: 5}, (_, index)=>{
-        if(index < Math.floor(rating)){
-            return <FaStar key={index} className="text-yellow-300"/>
-        }else if (index < rating){
-            return(
-                <div key={index} className="flex items-center gap-3">
-                    <FaStarHalfAlt className="text-yellow-300"/>
-                    <div className="font-light">
-                        {rating}/<span className="font-light text-gray-500">5</span>
-                    </div>
-                </div>
-            )
-        }
-    })
-  }
+
   return (
     <div className="container mx-auto w-full py-8 overflow-hidden mb-24">
       <div className="flex justify-between px-4 sm:px-2">
@@ -80,7 +66,7 @@ const Testimonial = () => {
           {testimonialsData.map((testimonial, index) => (
             <div
               key={index}
-              className="`flex flex-shrink-0 items-center w-full sm:w-[340px] h-full`"
+              className="flex flex-shrink-0 items-center w-full sm:w-[340px] h-full"
             >
               <div className="border rounded-xl w-full p-4 flex flex-col justify-center">
                 <div className="flex flex-col p-2 h-full w-full">

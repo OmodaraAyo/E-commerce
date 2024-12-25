@@ -32,6 +32,14 @@ const NavBar = () => {
     navigate("/cart")
   }
 
+  const navigateLogoToHome = () => {
+    navigate("/")
+  }
+
+  const navigateToProfilePage = () => {
+    navigate("/profile")
+  }
+
   useEffect(()=>{
     if(showMobileMenu){
       document.body.style.overflow = 'hidden'
@@ -57,7 +65,7 @@ const NavBar = () => {
       <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-2 mb-3 bg-transparent">
         <div className="flex gap-3 justify-center items-center">
         <img onClick={()=>{setShowMobileMenu(true)}} src="/images/black_menu.svg" alt="" className="xl:hidden w-6 sm:w-7 cursor-pointer " />
-        <img src="/images/SHOP.CO.svg" alt="shop-logo" className="w-32 sm:w-[156px]"/>
+        <button onClick={navigateLogoToHome}><img src="/images/SHOP.CO.svg" alt="shop-logo" className="w-32 sm:w-[156px]"/></button>
         </div>
         <ul className="hidden xl:flex gap-7 text-neutral-950">
           <li className="cursor-pointer hover:text-gray-500">Shop</li>
@@ -76,7 +84,7 @@ const NavBar = () => {
               {cartSize === 0 ? '': <span className="absolute w-5 h-5 bg-yellow-400 flex justify-center items-center rounded-full ml-2 top-14 sm:top-16 cursor-pointer"><p className="font-light text-sm">{cartSize}</p></span>}
               </button>
             </div>
-            <img src="/images/user_circle.svg" alt="" className="w-5 sm:w-6"/>
+            <button onClick={navigateToProfilePage}><img src="/images/user_circle.svg" alt="" className="w-5 sm:w-6"/></button>
             {isAuthenticated && (
                <button onClick={handleLogout}><FaSignOutAlt className="sign-out text-xl sm:text-2xl text-red-600 hover:text-red-700"/></button>
             )}

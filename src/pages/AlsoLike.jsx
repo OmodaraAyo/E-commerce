@@ -4,13 +4,9 @@ import { useNavigate } from 'react-router';
 import { useGetMenProductByCaQuery } from '../service/utilsApi';
 
 
-const NewArrivals = (props) => {
+const AlsoLike = (props) => {
     const {data, isLoading, isError} = useGetMenProductByCaQuery()
     const navigate = useNavigate()
-
-    const navigateToViewAllPage = ()=> {
-      navigate("/home/all-product")
-    }
 
     if(isLoading){
       return <div className='font-bold'>Loading...</div>
@@ -29,11 +25,9 @@ const NewArrivals = (props) => {
 
   return (
     <div className='flex flex-col justify-center items-center container mx-auto p-8 md:p-12 md:px-0 lg:px30'>
-      <h1 className='text-4xl sm:text-5xl font-extrabold mb-10'>NEW ARRIVALS</h1>
       {data && data.products?(<Card data={getProductsFromRange(0,5)} imageField="thumbnail" onCardClick={navigateToProductDetailPage}/>):(<div> No product available</div>) }
-      <button onClick = {navigateToViewAllPage} className="w-full sm:w-auto md:block bg-transparent border-2 px-16 py-3 lg:px-20 rounded-full text-black relative mt-10">View All</button>
     </div>
   )
 }
 
-export default NewArrivals
+export default AlsoLike

@@ -20,7 +20,7 @@ const DressStyle = () => {
                 </div>
                 <div className='bg-[#FFFFFF] rounded-2xl flex w-[400px] h-full lg:w-[350px] xl:w-[400px] lg:ml-24 xl:ml'>
                     <h1 className='font-bold text-lg md:text-2xl flex px-7 absolute pt-4'>Gym</h1>
-                    <img src="/images/gym14.svg" alt="casual"  className='max-w-full w-[400px] h-[190px] rounded-2xl'/>
+                    <img src="/images/gym14.svg" alt="casual"  className='max-w-full w-full h-[190px] rounded-2xl'/>
                 </div>
                 
             </div>

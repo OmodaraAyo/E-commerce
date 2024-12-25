@@ -1,13 +1,16 @@
 import {React, useState } from "react";
 import { useParams } from "react-router";
 import { useGetProductByIdQuery } from "../service/shopApi";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import NavBar from "../components/NavBar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "./cart/cartSlice";
 import {useNavigate} from 'react-router'
 import { toast } from "react-toastify";
 import Footer from "../components/Footer"
+import ratingStars from "../reusables/ratingStar";
+import RatingAndReviews from "./testimonialAndFAQs/RatingAndReviews";
+import FAQs from "./testimonialAndFAQs/FAQs";
+import AlsoLike from "./AlsoLike"
 
 const ProductDetailPage = () => {
   const navigate = useNavigate()
@@ -15,9 +18,8 @@ const ProductDetailPage = () => {
   const { productId } = useParams();
   const [count, setCount] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
-  const cart = useSelector((state) => state.cart)
-  console.log("from productPage", cart)
-  // console.log("cartQUantity from productPage", cart?.cartItems[0].cartQuantity)
+  const [showCurrentPage, setShowCurrentPage] = useState('ratingAndReviews')
+  // const cart = useSelector((state) => state.cart)
   const { data, isLoading, isError } = useGetProductByIdQuery(productId);
   console.log(data);
   
@@ -32,8 +34,18 @@ const ProductDetailPage = () => {
     return discountedPrice.toFixed(2); 
   }
 
+  const formatReviewerDate = (reviewer) =>{
+
+    const formattedDate = new Date(reviewer).toISOString().split('T')[0]
+    return formattedDate
+  }
+
   const handleSizeClick = (size)=>{
     setSelectedSize(selectedSize === size? null : size);
+  }
+
+  const handleCurrentPage = (page) =>{
+      setShowCurrentPage(page)
   }
 
   const increaseCount = () => setCount(count + 1);
@@ -56,7 +68,7 @@ const ProductDetailPage = () => {
   return (
     <div>
       <NavBar/>
-      <div className="container mx-auto border-t-2 border-gray-200 mb-36">
+      <div className="container mx-auto border-t-2 border-gray-200 mb-16">
         <div className="md:flex gap-12 mt-5 px-5 sm:px-5 md:px-0">
           <div className="images-container flex flex-col justify-self-center xl:flex-row-reverse lg:justify-self-start gap-5 cursor-pointer">
             <div className="flex flex-shrink-0 justify-center items-center w-auto h-auto bg-[#F2F0F1] rounded-2xl">
@@ -80,18 +92,7 @@ const ProductDetailPage = () => {
              (<h2 className="font-extrabold text-[37px]">{data.title.toUpperCase()}</h2>) : 
              <h1 className="font-extrabold text-[46px]">{data.title.toUpperCase()}</h1>
             }
-
-            {/* <h1 className="font-extrabold text-[46px]">{data.title.toUpperCase()}</h1> */}
-            <div className="flex items-center gap-2">
-                {Array.from({length : 5}, (_, index)=>{
-                    if(index < Math.floor(data.rating)){
-                        return <FaStar key={index} className='text-yellow-300'/>
-                    }else if(index < data.rating){
-                        return <div key={index} className="flex items-center gap-3"><FaStarHalfAlt className="text-yellow-300"/><div className='font-light'>{data.rating}/<span className='font-light text-gray-500'>5</span></div></div>
-                    }
-                })
-                }
-            </div>
+            <div className="flex items-center gap-2 text-2xl">{ratingStars(data.rating)}</div>
             <div className="flex gap-4">
             <h2 className="font-semibold text-2xl text-black">${calculateDiscountPrice(data)}</h2>
             <h2 className="font-semibold text-2xl text-zinc-400 line-through">${data.price}</h2>
@@ -128,6 +129,27 @@ const ProductDetailPage = () => {
             </div>
           </div>
           {/* <p>{data.description}</p> */}
+        </div>
+      </div>
+      <div className="container mb-36 grid grid-cols-1 justify-self-center">
+        <div className="flex flex-row justify-between px-8">
+          <button className="text-[#00000099]">Product Details</button>
+          <button onClick={()=> handleCurrentPage("ratingAndReviews")} className={`${showCurrentPage === "ratingAndReviews"? 'border-b-2 border-transparent pb-4 z-30' : 'text-[#00000099] hover:text-black'}`}>Rating & Reviews</button>
+          <button onClick={()=> handleCurrentPage("FAQs")} className={`${showCurrentPage === "FAQs"? 'border-b-2 border-transparent pb-4 z-30': 'text-[#00000099] hover:text-black' }`}>FAQs</button>
+        </div>
+        <div>
+          {showCurrentPage === "ratingAndReviews" && 
+          (<div>
+              <RatingAndReviews/>
+              <div>
+                <div className="flex justify-center items-center">
+                  <label htmlFor="You Might Also Like" className="text-2xl sm:text-4xl font-extrabold font-sans">YOU MIGHT ALSO LIKE</label>
+                </div>
+                <AlsoLike/>
+              </div>
+          </div>
+          )}
+          {showCurrentPage === "FAQs" && <FAQs/>}
         </div>
       </div>
       <Footer/>

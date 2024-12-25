@@ -93,21 +93,21 @@ const Cart = () => {
                 ))}
               </div>
               <div className="cart-summary flex flex-col justify-self-end border border-gray-200 w-full lg:max-w-xl rounded-2xl px-5 py-5 max-h-[32rem]">
-              <label htmlFor="Order Summary" className="font-medium text-2xl">Order Summary</label>
+              <label htmlFor="Order Summary" className="font-medium text-xl md:text-2xl">Order Summary</label>
                 <div className="mt-5">
                   <div className="border-b-2 mb-3 flex flex-col gap-4">
-                    <h2 className="flex flex-row justify-between text-[#00000099] font-light text-lg">Subtotal<span className="text-black font-bold text-[1.47rem]">${(cart.cartTotalAmount).toFixed(2)}</span></h2>
-                    <h2 className="flex flex-row justify-between text-[#00000099] font-light text-lg">Discount {'(-20%)'}<span className="text-red-600 font-bold text-[1.23rem]">-${handleDiscountPrice(cart)}</span></h2>
-                    <h2 className="flex flex-row justify-between mb-4 text-[#00000099] font-light text-lg">Delivery Fee<span className="text-black font-bold text-[1.21rem] ">${handleDeliveryFee(cart)}</span></h2>
+                    <h2 className="flex flex-row justify-between text-[#00000099] font-light text-lg ">Subtotal<span className="text-black font-bold text-[1.27rem] md:text-[1.47rem]">${(cart.cartTotalAmount).toFixed(2)}</span></h2>
+                    <h2 className="flex flex-row justify-between text-[#00000099] font-light text-lg">Discount {'(-20%)'}<span className="text-red-600 font-bold text-[1.27rem] md:text-[1.23rem]">-${handleDiscountPrice(cart)}</span></h2>
+                    <h2 className="flex flex-row justify-between mb-4 text-[#00000099] font-light text-lg">Delivery Fee<span className="text-black font-bold text-[1.12rem] md:text-[1.21rem]">${handleDeliveryFee(cart)}</span></h2>
                   </div>
-                  <h2 className="flex flex-row justify-between  text-xl">Total<span>${parseFloat((cart.cartTotalAmount + handleDeliveryFee(cart)) - handleDiscountPrice(cart)).toFixed(2)}</span></h2>
+                  <h2 className="flex flex-row justify-between text-xl">Total<span className="text-[1.20rem] md:text-[1.27rem]">${parseFloat((cart.cartTotalAmount + handleDeliveryFee(cart)) - handleDiscountPrice(cart)).toFixed(2)}</span></h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-14">
-                  <div className="flex w-full max-w-[22rem] bg-[#F0F0F0] justify-start items-center gap-1 px-4 py-3 rounded-full absolute">
+                <div className="grid grid-cols-1 md:grid-cols-2 md:gap-3 mt-14">
+                  <div className="flex w-full max-w-[12rem] sm:max-w-[25rem] md:max-w-[31rem] lg:max-w-[18rem] xl:max-w-[23rem] bg-[#F0F0F0] justify-start items-center gap-1 px-4 py-3 rounded-full absolute">
                     <FaTag className="bg-none outline-none mt-1 text-[#bcbaba]"/>
                     <input type="text" placeholder="Add promo code" className="w-full px-1 bg-transparent outline-none"/>
                   </div>
-                  <button className="flex absolute justify-self-end justify-center w-full max-w-40 rounded-full bg-black py-3 text-white">Apply</button>
+                  <button className="flex absolute justify-self-end justify-center w-full max-w-28 sm:max-w-40 md:max-w-48 lg:max-w-40 rounded-full bg-black py-3 text-white">Apply</button>
                 </div>
                 <button className="flex justify-center items-center gap-4 w-full sm:w-auto bg-black px-8 py-4 rounded-full text-white mt-20">
                   <span>Go to Checkout</span>

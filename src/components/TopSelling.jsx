@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Card from '../reusables/Card'
-import { useLocation, useNavigate } from 'react-router'
+import {useNavigate } from 'react-router'
 import { useGetWomenProductByCaQuery } from '../service/utilsApi'
 
 const TopSelling = () => {
   const {data, isLoading, isError} = useGetWomenProductByCaQuery();
-  console.log("from top selling",data)
   const navigate = useNavigate();
-  // const location = useLocation();
 
   const navigateToViewAllPage = ()=>{
     navigate("/home/all-product");
