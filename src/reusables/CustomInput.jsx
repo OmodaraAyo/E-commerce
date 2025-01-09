@@ -100,7 +100,7 @@ const CustomInput = ({ isSearchDisabled }) => {
                        </div>
                     </div>
                 ) : (
-                    <div className="text-gray-400 flex justify-self-center px-3">No results found for "{searchedProduct}"</div>
+                    <div className="text-gray-400 flex justify-self-center px-4">No results found for "{searchedProduct}"</div>
                 )}
           </div>
         </div>
