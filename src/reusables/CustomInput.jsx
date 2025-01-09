@@ -85,7 +85,7 @@ const CustomInput = ({ isSearchDisabled }) => {
                                 <div className="flex flex-col font-light justify-start items-center mb-5 gap-2">
                                     <div onClick={() => navigateToContactDetailsPage(product.id)} className="w-full h-full bg-transparent rounded-2xl py-4 flex justify-center items-center bg-[#F0EEED] overflow-hidden shadow-lg">
                                         {product.images && product.images.length > 0? (
-                                            <img src={product.images[0]} alt={product.title}  className="w-64 h-64 object-cover rounded-2xl"/>
+                                            <img src={product.images[0]} alt={product.title}  className="w-64 h-52 object-cover rounded-2xl"/>
                                         ):''}
                                     </div>
                                     <div className="flex flex-col gap-1 text-left font-medium text-sm mb-2 justify-start items-start px-2">
