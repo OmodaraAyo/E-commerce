@@ -77,7 +77,7 @@ const CustomInput = ({ isSearchDisabled }) => {
 
           <div className="px-4 py-2">
                 {showData && matchedProduct?.products?.length > 0? (
-                    <div className="topMatchedProductsContainer">
+                    <div className="topMatchedProductsContainer ">
                         <h1 className="flex justify-start mb-7 -mt-2 text-black shadow-black border-b-2 border-black text-lg pb-2 font-semibold">Top Matched Product{matchedProduct?.products?.length > 1? 's': ''}...</h1>
                        <div className="product-Container grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                        {matchedProduct.products.map((product) => (
@@ -93,7 +93,7 @@ const CustomInput = ({ isSearchDisabled }) => {
                                         <h2 className="h-7 text-lg font-sans font-bold text-black">${product.price}</h2>
                                         <div className="flex items-center text-base sm:text-xl h-6 text-black">{ratingStars(product.rating)}</div>
                                     </div>
-                                    <button onClick={() => navigateToContactDetailsPage(product.id)} className="w-full bg-[#000000] text-[#FFFFFF] max-w-60 py-2 text-lg font-sans font-semibold rounded-md shadow-black shadow-sm">View more Details</button>
+                                    <button onClick={() => navigateToContactDetailsPage(product.id)} className="w-full bg-[#000000] text-[#FFFFFF] max-w-60 py-2 text-sm sm:text-lg font-sans font-semibold rounded-md shadow-black shadow-sm">View more Details</button>
                                 </div>
                             </div>
                         ))}
