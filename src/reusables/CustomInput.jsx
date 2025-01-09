@@ -50,7 +50,7 @@ const CustomInput = ({ isSearchDisabled }) => {
   }
 
   return (
-    <div className="w-full flex flex-col mt-auto relative">
+    <div className="w-full flex flex-col mt-auto sticky z-50">
       <input
         type="text"
         name="searchBox"
@@ -100,7 +100,7 @@ const CustomInput = ({ isSearchDisabled }) => {
                        </div>
                     </div>
                 ) : (
-                    <div className="text-gray-400 flex justify-self-center">No results found for "{searchedProduct}"</div>
+                    <div className="text-gray-400 flex justify-self-center px-8">No results found for "{searchedProduct}"</div>
                 )}
           </div>
         </div>
