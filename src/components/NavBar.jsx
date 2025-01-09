@@ -76,7 +76,7 @@ const NavBar = ({isSearchDisabled}) => {
           <li className="cursor-pointer hover:text-gray-500">New Arrivals</li>
           <li className="cursor-pointer hover:text-gray-500">Brands</li>
         </ul>
-        <button className={`hidden sm:flex sm:flex-row items-center border rounded-full px-4 py-2 gap-2 bg-gray-100 font-light  w-full max-w-60 md:max-w-sm lg:max-w-lg outline-none h-12`} disabled={isSearchDisabled}>
+        <button className={`hidden sm:flex sm:flex-row items-center border rounded-full px-4 py-2 gap-2 bg-gray-100 font-light w-full max-w-60 md:max-w-[20rem] lg:max-w-lg outline-none h-12`} disabled={isSearchDisabled}>
             <FaSearch className="flex justify-self-start text-lg text-gray-400 outline-none"/>
             <CustomInput isSearchDisabled={isSearchDisabled}/>
         </button>
@@ -98,7 +98,7 @@ const NavBar = ({isSearchDisabled}) => {
       </div>
 
       {/* --------mobile-menu----- */}
-      <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out rounded-bl-3xl shadow-2xl shadow-[#F0EEED] z-50`}>
+      <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out rounded-bl-3xl shadow-xl shadow-[#b1b1b0] z-50`}>
         <div className="flex justify-end p-6 cursor-pointer">
           <button onClick={()=>{setShowMobileMenu(false)}}>
           <FaTimes className="w-10 text-3xl"/>
