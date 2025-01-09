@@ -98,7 +98,7 @@ const NavBar = ({isSearchDisabled}) => {
       </div>
 
       {/* --------mobile-menu----- */}
-      <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out`}>
+      <div className={`xl:hidden ${showMobileMenu ? 'fixed w-full py-6 text-white': 'h-0 w-0'} right-0 top-0 button-0 overflow-hidden bg-black transform transition-all duration-200 ease-in-out rounded-bl-3xl shadow-2xl shadow-[#F0EEED]`}>
         <div className="flex justify-end p-6 cursor-pointer">
           <button onClick={()=>{setShowMobileMenu(false)}}>
           <FaTimes className="w-10 text-3xl"/>
@@ -106,13 +106,13 @@ const NavBar = ({isSearchDisabled}) => {
         </div>
         <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-xl font-medium cursor-pointer">
           <button onClick={navigateToAllProductPage} className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Shop</button>
-          <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">On Sale</li>
-          <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">New Arrivals</li>
-          <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Brands</li>
+          <button className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">On Sale</button>
+          <button className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">New Arrivals</button>
+          <button className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Brands</button>
         </ul>
-        <div className="flex flex-row items-center border:none bg-white rounded-full px-4 py-2 gap-2 mx-5 overflow-hidden">
-        <FaSearch className="left-3 text-lg text-gray-400"/>
-        <input type="text" placeholder="Search for products..." id="" className="bg-transparent text-xl w-full border-none focus:outline-none mb-1 text-black overflow-hidden" />
+        <div className="flex flex-row items-center border:none bg-white rounded-full px-4 py-2 gap-2 mx-5 overflow-hidden h-12">
+          <FaSearch className="left-3 text-lg text-gray-400"/>
+          <CustomInput isSearchDisabled={isSearchDisabled}/>
         </div>
       </div>
     </div>

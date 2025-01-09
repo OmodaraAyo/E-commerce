@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Card from '../reusables/Card';
 import { useNavigate } from 'react-router';
 import { useGetMenProductByCaQuery } from '../service/utilsApi';
 
 
-const NewArrivals = (props) => {
+const NewArrivals = () => {
     const {data, isLoading, isError} = useGetMenProductByCaQuery()
     const navigate = useNavigate()
 
