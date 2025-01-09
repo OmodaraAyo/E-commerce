@@ -57,7 +57,7 @@ const CustomInput = ({ isSearchDisabled }) => {
         placeholder="Search for product..."
         onInput={handleSearchInputChange}
         onClick={handleInputClick}
-        className="container px-2 bg-transparent placeholder:text-gray-400 outline-none mb-10 mt-[0.20rem]"
+        className="container px-2 bg-transparent placeholder:text-gray-400 outline-none mb-10 mt-[0.20rem] caret-transparent"
         value={searchedProduct}
         disabled={isSearchDisabled}
       />
