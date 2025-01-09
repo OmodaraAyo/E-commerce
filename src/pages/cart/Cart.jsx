@@ -102,8 +102,8 @@ const Cart = () => {
                   </div>
                   <h2 className="flex flex-row justify-between text-xl">Total<span className="text-[1.20rem] md:text-[1.27rem]">${parseFloat((cart.cartTotalAmount + handleDeliveryFee(cart)) - handleDiscountPrice(cart)).toFixed(2)}</span></h2>
                 </div>
-                <div className="flex flex-row justify-between mt-14 px-2 py-2 mb-6">
-                  <div className="flex w-full max-w-[12rem] sm:max-w-[25rem] md:max-w-[31rem] lg:max-w-[18rem] xl:max-w-[23rem] bg-[#F0F0F0] justify-start items-center gap-1 px-4 py-3 rounded-full">
+                <div className="flex flex-row justify-between mt-14 px-2 py-2 mb-6 gap-5">
+                  <div className="flex w-full max-w-[25rem] md:max-w-[31rem] lg:max-w-[18rem] xl:max-w-[23rem] bg-[#F0F0F0] justify-start items-center gap-1 px-4 py-3 rounded-full">
                     <FaTag className="bg-none outline-none mt-1 text-[#bcbaba]"/>
                     <input type="text" placeholder="Add promo code" className="w-full px-1 bg-transparent outline-none"/>
                   </div>
