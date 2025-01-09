@@ -4,40 +4,43 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../auth/authSlice";
 import { toast } from "react-toastify";
+import CustomInput from "../reusables/CustomInput";
 
 
-const NavBar = () => {
+const NavBar = ({isSearchDisabled}) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartSize } = useSelector((state)=> state.cart)
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
 
   const handleLogout = () =>{
     dispatch(logout())
     toast.success('You have successfully logged out')
-    navigate("/home")
+    navigate("/home");
   }
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
-
   const handleOnclick = ()=> {
-    navigate("/signup")
+    navigate("/signup");
   }
 
   const navigateToLogin = ()=> {
-    navigate("/login")
+    navigate("/login");
   }
 
   const navigateToCart = () =>{
-    navigate("/cart")
+    navigate("/cart");
   }
 
   const navigateLogoToHome = () => {
-    navigate("/")
+    navigate("/");
   }
 
   const navigateToProfilePage = () => {
-    navigate("/profile")
+    navigate("/profile");
+  }
+  const navigateToAllProductPage = () => {
+    navigate("/home/all-product");
   }
 
   useEffect(()=>{
@@ -73,9 +76,9 @@ const NavBar = () => {
           <li className="cursor-pointer hover:text-gray-500">New Arrivals</li>
           <li className="cursor-pointer hover:text-gray-500">Brands</li>
         </ul>
-        <button className={`hidden sm:flex sm:flex-row items-center border rounded-full px-4 py-2 gap-2 bg-gray-100 font-light overflow-hidden w-full max-w-60 md:max-w-sm lg:max-w-lg outline-none`}>
+        <button className={`hidden sm:flex sm:flex-row items-center border rounded-full px-4 py-2 gap-2 bg-gray-100 font-light  w-full max-w-60 md:max-w-sm lg:max-w-lg outline-none h-12`} disabled={isSearchDisabled}>
             <FaSearch className="flex justify-self-start text-lg text-gray-400 outline-none"/>
-            <input type="text" placeholder="Search for products..." id="" className="bg-transparent w-full border-none focus:outline-none" />
+            <CustomInput isSearchDisabled={isSearchDisabled}/>
         </button>
         <div className="flex flex-wrap gap-2 justify-center items-center">
             <button onClick={()=>{setShowMobileMenu(true)}} className="sm:hidden"><FaSearch className="text-lg "/></button>
@@ -102,7 +105,7 @@ const NavBar = () => {
           </button>
         </div>
         <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-xl font-medium cursor-pointer">
-          <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Shop</li>
+          <button onClick={navigateToAllProductPage} className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Shop</button>
           <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">On Sale</li>
           <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">New Arrivals</li>
           <li className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Brands</li>

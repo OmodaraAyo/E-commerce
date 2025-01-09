@@ -50,7 +50,7 @@ const ViewAll = () => {
     <div>
       <NavBar/>
       <div className="navBar-Bt-Line w-full bg-black text-white ">
-        <h1 className='container mx-auto px-7 text-center sm:px-0 text-lg sm:text-2xl font-semibold font-sans'>All Products</h1>
+        <h1 className='container mx-auto px-7 text-center sm:px-0 text-lg sm:text-2xl font-semibold font-sans h-5'></h1>
       </div>
       <div className='flex flex-col justify-center items-start container mx-auto p-6 md:p-8 md:px-0 lg:px-30 mb-12'>
           <h1 className='text-center text-3xl sm:text-4xl font-bold mb-6 font-sans'>Shirts & Dresses</h1>

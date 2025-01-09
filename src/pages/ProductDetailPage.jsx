@@ -1,4 +1,4 @@
-import {React, useEffect, useState } from "react";
+import {React, useState } from "react";
 import { useParams } from "react-router";
 import { useGetProductByIdQuery } from "../service/shopApi";
 import NavBar from "../components/NavBar";
@@ -60,7 +60,7 @@ const ProductDetailPage = () => {
  
   return (
     <div>
-      <NavBar/>
+      <NavBar isSearchDisabled={true}/>
       <div className="container mx-auto border-t-2 border-gray-200 mb-16">
         <div className="md:flex gap-12 mt-5 px-5 sm:px-5 md:px-0">
           <div className="images-container flex flex-col justify-self-center xl:flex-row-reverse lg:justify-self-start gap-5 cursor-pointer">

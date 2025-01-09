@@ -87,6 +87,10 @@ export const utilsApi = createApi({
         return `sports-accessories`;
       },
     }),
+
+    getProductByName: builder.query({
+      query: (productName)=> `https://dummyjson.com/products/search?q=${productName}`
+    })
   }),
 });
 
@@ -105,4 +109,5 @@ export const {
   useGetGlassesQuery,
   useGetWomenTopsQuery,
   useGetSportAccessoriesQuery,
+  useGetProductByNameQuery,
 } = utilsApi;

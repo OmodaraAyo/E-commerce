@@ -12,7 +12,7 @@ const Footer = () => {
                 <MdEmail className="text-gray-400 text-2xl "/>
             <input type="email" placeholder="Enter your email address" className="outline-none font-light w-full h-full"/>
             </div>
-            <button className="flex justify-center items-center bg-[#FFFFFF] px-4 py-3 mx-10 sm:mx-30 lg:mx-24 rounded-full text-black font-semibold text-sm">Subscribe to Newsletter</button>
+            <button className="flex justify-center items-center bg-[#FFFFFF] px-4 py-3 mx-10 sm:mx-30 lg:mx-24 rounded-full text-black font-semibold text-sm animate-pulse">Subscribe to Newsletter</button>
           </div>
         </div>
       </div>
