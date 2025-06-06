@@ -3,7 +3,6 @@ import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Card = (props) => {
     const {data, menShirts, womenDressData, fragrances, menShoes, womenShoes, menWatches, imageField, womenWatches, glasses, tops, jewelleries, womenBags, sportAccS, onCardClick} = props;
-    // console.log("from card: ",data)
   
   const originalData = data || menShirts || womenDressData || fragrances || menShoes || womenShoes || menWatches || womenWatches || glasses || tops || jewelleries || womenBags || sportAccS;
 
