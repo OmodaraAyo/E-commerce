@@ -105,10 +105,10 @@ const NavBar = ({isSearchDisabled}) => {
           </button>
         </div>
         <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-xl font-medium cursor-pointer">
-          <button onClick={navigateToAllProductPage} className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Shop</button>
-          <button className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">On Sale</button>
-          <button className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">New Arrivals</button>
-          <button className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Brands</button>
+          <a onClick={navigateToAllProductPage} className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Shop</a>
+          <a className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">On Sale</a>
+          <a href="#new-arrivals" className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">New Arrivals</a>
+          <a className="px-4 py-2 rounded-full inline-block  hover:text-gray-500">Brands</a>
         </ul>
         <div className="flex flex-row items-center border:none bg-white rounded-full px-4 py-2 gap-2 mx-5 overflow-hidden h-12">
           <FaSearch className="left-3 text-lg text-gray-400"/>

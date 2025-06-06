@@ -21,8 +21,6 @@ const ViewAll = () => {
     const {data: tops} = useGetWomenTopsQuery();
     const {data: sportAccS} = useGetSportAccessoriesQuery()
     const navigate = useNavigate();
-
-    console.log(menShoes)
     
     if(isLoading){
       return <div className='font-bold'></div>
