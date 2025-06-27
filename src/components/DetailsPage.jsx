@@ -4,7 +4,7 @@ import TopSelling from './TopSelling'
 
 const DetailsPage = () => {
   return (
-    <div>
+    <div className=' mb-12'>
       <NewArrivals/>
       <TopSelling/>
     </div>

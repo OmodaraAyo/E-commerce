@@ -11,6 +11,7 @@ import ratingStars from "../reusables/ratingStar";
 import RatingAndReviews from "./testimonialAndFAQs/RatingAndReviews";
 import FAQs from "./testimonialAndFAQs/FAQs";
 import AlsoLike from "./AlsoLike"
+import AdBanner from "../components/AdBanner";
 
 const ProductDetailPage = () => {
   const navigate = useNavigate()
@@ -134,6 +135,7 @@ const ProductDetailPage = () => {
           {showCurrentPage === "ratingAndReviews" && 
           (<div>
               <RatingAndReviews/>
+              <AdBanner/>
               <div>
                 <div className="flex justify-center items-center">
                   <label htmlFor="You Might Also Like" className="text-2xl sm:text-4xl font-extrabold font-sans">YOU MIGHT ALSO LIKE</label>

@@ -6,6 +6,7 @@ import { FaArrowLeft, FaArrowRight, FaTag, FaTrashAlt } from "react-icons/fa";
 import Footer from "../../components/Footer";
 import { decreaseCart, getTotalAmount, increaseCart, removeFromCart } from "./cartSlice";
 import { toast } from "react-toastify";
+import AdBanner from "../../components/AdBanner";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -114,6 +115,7 @@ const Cart = () => {
                   <FaArrowRight/>
                 </button>
               </div>
+              <AdBanner/>
             </div>
           )}
         </div>

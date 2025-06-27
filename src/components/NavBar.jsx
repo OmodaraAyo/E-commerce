@@ -83,7 +83,7 @@ const NavBar = ({isSearchDisabled}) => {
         <div className="flex flex-wrap gap-2 justify-center items-center">
             <button onClick={()=>{setShowMobileMenu(true)}} className="sm:hidden"><FaSearch className="text-lg "/></button>
             <div className="cart-box flex ">
-              <button onClick={()=> navigateToCart()}><img src="/images/shopping_basket.svg" alt="" className="w-5 sm:w-6" />
+              <button onClick={()=> navigateToCart()}><img src="/images/shopping_basket.svg" alt="" className="w-5 sm:w-6 relative" />
               {cartSize === 0 ? '': <span className="absolute w-5 h-5 bg-yellow-400 flex justify-center items-center rounded-full ml-2 top-14 sm:top-16 cursor-pointer"><p className="font-light text-sm">{cartSize}</p></span>}
               </button>
             </div>
